@@ -2,7 +2,7 @@ import "./FruitList.css";
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../Loader/Loader";
-import Error from "../Error/Error"
+import Error from "../Error/Error";
 import FruitCard from "../FruitCard/FruitCard";
 
 const fetchFruits = async () => {
@@ -18,7 +18,7 @@ const FruitList = () => {
   const { data, status } = useQuery(["fruits"], fetchFruits);
   const [filteredFruits, setFilteredFruits] = useState([]);
   const [searchValue, setSearchValue] = useState("");
-  const [errorMessage, setErrorMessage] = useState  (null);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
     filterValues();
@@ -36,14 +36,16 @@ const FruitList = () => {
   };
 
   const checkForFruits = (newFruits) => {
-    !newFruits.length
-      ? setErrorMessage("Sorry, no movies match your search. Please try again.")
-      : setFilteredFruits(newFruits);
+    if (!newFruits.length) {
+      setErrorMessage("Sorry, no movies match your search. Please try again.");
+    } else {
+      setFilteredFruits(newFruits);
+    }
   };
 
   return (
     <main>
-      {status === "error" && <Error errorMessage={errorMessage}/>}
+      {status === "error" && <Error errorMessage={errorMessage} />}
       {status === "loading" && <Loader />}
       {status === "success" && (
         <div className="fruit-list">
