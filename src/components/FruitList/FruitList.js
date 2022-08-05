@@ -49,7 +49,7 @@ const FruitList = () => {
       {status === "loading" && <Loader />}
       {status === "success" && (
         <div className="fruit-list">
-          {filteredFruits.map((fruit) => (
+          {data.map((fruit) => (
             <FruitCard
               key={fruit.id}
               id={fruit.id}
