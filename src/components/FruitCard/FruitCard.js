@@ -3,15 +3,20 @@ import "./FruitCard.css";
 const FruitCard = ({ id, name, nutritions }) => {
   return (
     <div className="fruit-card" id={id}>
-      <h2>{name}</h2>
-      <h4>Nutrition Stats:</h4>
-      <p>Sugar: {nutritions.sugar}</p>
-      <p>Protein: {nutritions.protein}</p>
-      <p>Fat: {nutritions.fat}</p>
-      <input type="checkbox" id='add' name="add" />
-      <label for="add">Add to basket</label>
-      <input type="number" id="amount" name="amount" min="1" max="50" />
-      <label for="amount">Amount (1-50):</label>
+      <div className="fruit-card-left">
+        <h2>{name}</h2>
+        <ul>
+          Nutrition Stats:
+          <li>Sugar: {nutritions.sugar}</li>
+          <li>Protein: {nutritions.protein}</li>
+          <li>Fat: {nutritions.fat}</li>
+        </ul>
+      </div>
+      <div className="fruit-card-right">
+        <label for="amount">Choose amount (1-50):</label>
+        <input type="number" id="amount" name="amount" min="1" max="50" />
+        <button className="button-fruit-card">add to basket</button>
+      </div>
     </div>
   );
 };

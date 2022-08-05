@@ -1,8 +1,8 @@
 .fruit-list {
-  width: 70%;
+  width: 80%;
   margin-top: 1em;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(23em, 1fr));
   grid-gap: 2em;
   justify-content: center;
   justify-items: center;
