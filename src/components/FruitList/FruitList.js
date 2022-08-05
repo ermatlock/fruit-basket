@@ -1,5 +1,6 @@
 import './FruitList.css'
 import { useQuery } from "@tanstack/react-query";
+import FruitCard from '../FruitCard/FruitCard'
 
 const fetchFruits = async () => {
   const res = await fetch("https://fe-cors-proxy.herokuapp.com", {
@@ -12,6 +13,8 @@ const fetchFruits = async () => {
 
 const FruitList = () => {
   const { data, status } = useQuery(["fruits"], fetchFruits);
+  
+
   return (
     <main>
       {status === "error" && <p>Error fetching data</p>}
@@ -19,10 +22,16 @@ const FruitList = () => {
         {status === "success" && (
           <div>
           {data.map((fruit) => (
-            <p key={fruit.id}>{fruit.name}</p>
+            <FruitCard
+              key={fruit.id}
+              id={fruit.id}
+              name={fruit.name}
+              nutritions={fruit.nutritions}
+            />
           ))}
         </div>
         )}
+        {/* <FruitCard/> */}
     </main>
   )
 }
