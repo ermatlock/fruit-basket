@@ -1,9 +1,12 @@
-import "./Header.css"
+import "./Header.css";
 
 const Header = () => {
- <header>
-
- </header>
-}
+  return(
+  <header>
+    <img src="./images/fruit-basket.png" />
+    <h1>FruitBasket</h1>
+  </header>
+  )
+};
 
 export default Header;
