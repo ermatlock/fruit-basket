@@ -45,6 +45,7 @@ const FruitList = () => {
 
   return (
     <main>
+    <h2 className='main-heading'>Select your fruit and add it to the basket</h2>
       {status === "error" && <Error errorMessage={errorMessage} />}
       {status === "loading" && <Loader />}
       {status === "success" && (
