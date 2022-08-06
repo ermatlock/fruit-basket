@@ -1,24 +1,26 @@
 import "./FruitList.css";
-import { useState, useEffect } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useContext, useEffect, useState } from "react";
+import { DataContext } from "../../contexts/DataContext";
+// import { useQuery } from "@tanstack/react-query";
 import Loader from "../Loader/Loader";
 import Error from "../Error/Error";
 import FruitCard from "../FruitCard/FruitCard";
 
-const fetchFruits = async () => {
-  const res = await fetch("https://fe-cors-proxy.herokuapp.com", {
-    headers: {
-      "Target-URL": "https://www.fruityvice.com/api/fruit/all",
-    },
-  });
-  return res.json();
-};
+// const fetchFruits = async () => {
+//   const res = await fetch("https://fe-cors-proxy.herokuapp.com", {
+//     headers: {
+//       "Target-URL": "https://www.fruityvice.com/api/fruit/all",
+//     },
+//   });
+//   return res.json();
+// };
 
 const FruitList = () => {
-  const { data, status } = useQuery(["fruits"], fetchFruits);
+  const {data, searchValue, status }  = useContext(DataContext);
+//   const { data, status } = useQuery(["fruits"], fetchFruits);
   const [filteredFruits, setFilteredFruits] = useState([]);
-  const [searchValue, setSearchValue] = useState("");
-  const [errorMessage, setErrorMessage] = useState(null);
+//   const [searchValue, setSearchValue] = useState("");
+//   const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
     filterValues();
@@ -37,29 +39,41 @@ const FruitList = () => {
 
   const checkForFruits = (newFruits) => {
     if (!newFruits.length) {
-      setErrorMessage("Sorry, no movies match your search. Please try again.");
+      setErrorMessage("Sorry, no fruits match your search. Please try again.");
     } else {
       setFilteredFruits(newFruits);
     }
   };
 
+//   const searchFruit = (value) => {
+//     setSearchValue(value);
+//   };
+
+  const displayFruits = () => {
+    return filteredFruits.map((fruit) => (
+      <FruitCard
+        key={fruit.id}
+        id={fruit.id}
+        name={fruit.name}
+        nutritions={fruit.nutritions}
+      />
+    ))
+  }
+
   return (
     <main>
-    <h2 className='main-heading'>Select your fruit and add it to the basket</h2>
+    <div className="content-container">
+            <div className="main-heading">
+        <h2>Select your fruit and add it to the basket</h2>
+      </div>
       {status === "error" && <Error errorMessage={errorMessage} />}
       {status === "loading" && <Loader />}
       {status === "success" && (
         <div className="fruit-list">
-          {data.map((fruit) => (
-            <FruitCard
-              key={fruit.id}
-              id={fruit.id}
-              name={fruit.name}
-              nutritions={fruit.nutritions}
-            />
-          ))}
+          {filteredFruits && displayFruits()}
         </div>
       )}
+    </div>
     </main>
   );
 };
