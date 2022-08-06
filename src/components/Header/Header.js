@@ -1,20 +1,41 @@
 import "./Header.css";
 import FruitSearch from "../FruitSearch/FruitSearch";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
+  const location = useLocation();
   return (
     <header>
-      <div className="header-left">
-        <img className="logo" alt="wooden fruit cart brimming over with fruit" src="./images/fruit-basket.png" />
-        <h1>FruitBasket</h1>
-      </div>
+      <Link to="/">
+        <div className="header-left">
+          <img
+            className="logo"
+            alt="wooden fruit cart brimming over with fruit"
+            src="./images/fruit-basket.png"
+          />
+          <h1>FruitBasket</h1>
+        </div>
+      </Link>
       <div className="header-middle">
-        <FruitSearch/>
+        {location.pathname === "/" && <FruitSearch />}
       </div>
       <div className="header-right">
-        <button className="nav-btn">Go To Basket</button>
-        <img className="basket" alt="empty wicker basket" src="./images/wicker-basket.png" />
+        {location.pathname !== "/" ? (
+          <Link to="/">
+            <button className="back-button">Back to Fruits</button>
+          </Link>
+        ) : (
+          <Link to="/fruit-tracker">
+            <button className="nav-btn">track my fruits</button>
+          </Link>
+        )}
 
+        <div className="basket">
+          <a className="notification-icon--fixed">
+            <small className="notification-badge">12</small>
+          </a>
+          <img alt="empty wicker basket" src="./images/wicker-basket.png" />
+        </div>
       </div>
     </header>
   );
