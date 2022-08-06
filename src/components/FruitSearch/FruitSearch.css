@@ -1,0 +1,29 @@
+.search {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.search > input {
+  width: 40%;
+  min-width: 20em;
+  border-radius: 5px;
+}
+
+.search > select {
+  border-radius: 0px 5px 5px 0px;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 670px) {
+  .search > input {
+    min-width: 15em;
+    border-radius: 5px;
+  }
+  .search > select {
+    border-radius: 5px;
+    min-width: 15em;
+  }
+}
