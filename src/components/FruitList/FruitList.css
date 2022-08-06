@@ -1,11 +1,23 @@
 .fruit-list {
-  width: 80%;
+  /* width: 80%; */
   margin-top: 1em;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(23em, 1fr));
   grid-gap: 2em;
   justify-content: center;
   justify-items: center;
+}
+
+.content-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.main-heading {
+  /* display: flex; */
+  /* align-items: center; */
 }
 
 .fade-in {

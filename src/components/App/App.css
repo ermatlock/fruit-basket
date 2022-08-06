@@ -13,7 +13,7 @@ main {
 
 button {
   background-color: #F7D648;
-  border-radius: 12px;
+  border-radius: .5em;
   color: #000;
   cursor: pointer;
   font-weight: bold;

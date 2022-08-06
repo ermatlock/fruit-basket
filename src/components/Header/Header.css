@@ -18,7 +18,7 @@ header > div {
   width: 25%;
 }
 .header-middle {
- width: 50%
+  width: 50%;
 }
 .header-right {
   width: 25%;
@@ -30,10 +30,32 @@ header > div {
 }
 
 .basket {
-  width: 3em;
+  width: 3.5em;
   object-fit: contain;
 }
 
 .nav-btn {
   width: 50%;
+}
+
+.notification-icon--fixed {
+  position: absolute;
+  top: 1.5rem;
+  right: 2.5rem;
+  color: #fff;
+  background-color: #ff0055;
+  border-radius: 50%;
+  line-height: 0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.3em;
+}
+
+.notification-icon--fixed::after {
+  /* position: absolute; */
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+  z-index: 2;
 }
