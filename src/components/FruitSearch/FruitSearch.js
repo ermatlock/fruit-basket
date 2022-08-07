@@ -1,8 +1,10 @@
-import './FruitSearch.css'
-import { useState } from 'react'
+import "./FruitSearch.css";
+import { useContext, useState } from "react";
+import { DataContext } from "../../contexts/DataContext";
 
-const FruitSearch = ({ searchFruit }) => {
-  const [searchValue, setSearchValue] = useState("")
+const FruitSearch = () => {
+  const { searchFruit }  = useContext(DataContext);
+  const [searchValue, setSearchValue] = useState("");
 
   const handleInput = (e) => {
     setSearchValue(e.target.value);
@@ -10,8 +12,8 @@ const FruitSearch = ({ searchFruit }) => {
   };
 
   return (
-    <form className="search">
-      <label htmlFor="search" >Search for fruit</label>
+    <form className="search fade-in">
+      <label htmlFor="search">Search for fruit</label>
       <input
         id="search"
         value={searchValue}
@@ -20,8 +22,7 @@ const FruitSearch = ({ searchFruit }) => {
         type="text"
       />
     </form>
-
-  )
-}
+  );
+};
 
 export default FruitSearch;
