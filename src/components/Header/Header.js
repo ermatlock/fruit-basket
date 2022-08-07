@@ -5,8 +5,8 @@ import { DataContext } from "../../contexts/DataContext";
 import { useContext } from "react";
 
 const Header = () => {
-  const location = useLocation();
   const { totalStock } = useContext(DataContext);
+  const location = useLocation();
 
   return (
     <header>
@@ -33,9 +33,9 @@ const Header = () => {
         )}
 
         <div className="basket">
-          <a className="notification-icon--fixed">
+          <span className="notification-icon--fixed">
             <small className="notification-badge">{totalStock}</small>
-          </a>
+          </span>
           <img alt="empty wicker basket" src="./images/wicker-basket.png" />
         </div>
       </div>
