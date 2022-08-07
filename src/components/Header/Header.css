@@ -4,6 +4,7 @@ header {
   grid-template-columns: 1fr 1fr 1fr; */
   display: flex;
   height: 7em;
+  background-color: rgb(255, 232, 221);
 }
 
 header > div {
@@ -35,7 +36,7 @@ header > div {
 }
 
 .nav-btn {
-  width: 50%;
+  width: 15em;
 }
 
 .notification-icon--fixed {
