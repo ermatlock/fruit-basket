@@ -1,6 +1,39 @@
 import "./FruitCard.css";
+import { nanoid } from "nanoid";
+import { useContext, useState } from "react";
+import { DataContext } from "../../contexts/DataContext";
 
 const FruitCard = ({ id, name, nutritions }) => {
+  const { trackedFruits, setTrackedFruits } = useContext(DataContext);
+  const [isDisabled, setIsDisabled] = useState(true);
+  const [amount, setAmount] = useState("");
+
+  const handleInput = (e) => {
+    e.target.value > 0 ? setIsDisabled(false) : setIsDisabled(true);
+    setAmount(e.target.value);
+  };
+
+  const submitFruit = (e) => {
+    e.preventDefault();
+    const newTrackedFruits = [...trackedFruits];
+    const foundFruitIndex = newTrackedFruits.findIndex(
+      (fruit) => fruit.name === name
+    );
+    if (foundFruitIndex === -1) {
+      newTrackedFruits.push({
+        id: nanoid(),
+        name: name,
+        nutritions: nutritions,
+        stock: parseInt(amount),
+      });
+    } else {
+      newTrackedFruits[foundFruitIndex].stock += parseInt(amount);
+    }
+    setTrackedFruits(newTrackedFruits);
+    setAmount("");
+    setIsDisabled(true);
+  };
+
   return (
     <div className="fruit-card" id={id}>
       <div className="fruit-card-left">
@@ -12,11 +45,21 @@ const FruitCard = ({ id, name, nutritions }) => {
           <li>Fat: {nutritions.fat}g</li>
         </ul>
       </div>
-      <div className="fruit-card-right">
+      <form className="fruit-card-right">
         <label htmlFor="amount">Choose amount (1-50):</label>
-        <input type="number" id="amount" name="amount" min="1" max="50" />
-        <button className="button-fruit-card">add to basket</button>
-      </div>
+        <input
+          type="number"
+          id="amount"
+          name="amount"
+          min="0"
+          max="50"
+          value={amount}
+          onChange={handleInput}
+        />
+        <button disabled={isDisabled && "disabled"} onClick={submitFruit}>
+          add to basket
+        </button>
+      </form>
     </div>
   );
 };
