@@ -1,6 +1,6 @@
-import "./FruitCard.css";
+import "./TrackedCard.css";
 
-const FruitCard = ({ id, name, nutritions }) => {
+const TrackedCard = ({ id, name, nutritions, stock }) => {
   return (
     <div className="fruit-card" id={id}>
       <div className="fruit-card-left">
@@ -13,12 +13,12 @@ const FruitCard = ({ id, name, nutritions }) => {
         </ul>
       </div>
       <div className="fruit-card-right">
-        <label htmlFor="amount">Choose amount (1-50):</label>
-        <input type="number" id="amount" name="amount" min="1" max="50" />
-        <button className="button-fruit-card">add to basket</button>
+        <h1>{stock}</h1>
+        <button className="increment-button">+</button>
+        <button className="decrement-button">-</button>
       </div>
     </div>
   );
 };
 
-export default FruitCard;
+export default TrackedCard;
