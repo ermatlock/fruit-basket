@@ -1,5 +1,5 @@
 import "./FruitList.css";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { DataContext } from "../../contexts/DataContext";
 import Loader from "../Loader/Loader";
 import Error from "../Error/Error";
@@ -11,9 +11,9 @@ const FruitList = () => {
   return (
     <main>
       <div className="content-container fade-in">
-      <div className="main-heading">
-        <h2>Select your fruit and add it to the basket</h2>
-      </div>
+      {!errorMessage && !isLoading && <div className="main-heading">
+        <h2>Select a fruit and add it to the basket</h2>
+      </div>}
         {isLoading && <Loader />}
         {errorMessage && <Error errorMessage={errorMessage} />}
         {filteredFruits && (
