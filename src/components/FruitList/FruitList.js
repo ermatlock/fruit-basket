@@ -1,19 +1,56 @@
 import "./FruitList.css";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { DataContext } from "../../contexts/DataContext";
 import Loader from "../Loader/Loader";
 import Error from "../Error/Error";
 import FruitCard from "../FruitCard/FruitCard";
+import Swal from "sweetalert2";
 
 const FruitList = () => {
-  const { errorMessage, filteredFruits, isLoading } = useContext(DataContext);
+  const {
+    errorMessage,
+    filteredFruits,
+    isLoading,
+    emailAddress,
+    setEmailAddress,
+  } = useContext(DataContext);
+
+  useEffect(() => {
+    if (!emailAddress) {
+      fireLogin()
+    }
+  },[])
+
+  const fireLogin = () => {
+    Swal.fire({
+      title: 'Please enter your email address',
+      input: 'email',
+      inputLabel: 'Your email address',
+      inputPlaceholder: 'Enter your email address',
+      // allowOutsideClick: () => {
+      //   const popup = Swal.getPopup()
+      //   popup.classList.remove('swal2-show')
+      //   setTimeout(() => {
+      //     popup.classList.add('shake-horizontal')
+      //   })
+      //   setTimeout(() => {
+      //     popup.classList.remove('animate__headShake')
+      //   }, 500)
+      //   return false
+      // }
+    }).then((result) => {
+      setEmailAddress(result.value)
+    })
+  }
 
   return (
     <main>
       <div className="content-container fade-in">
-      {!errorMessage && !isLoading && <div className="main-heading">
-        <h2>Select a fruit and add it to the basket</h2>
-      </div>}
+        {!errorMessage && !isLoading && (
+          <div className="main-heading">
+            <h2>Select a fruit and add it to the basket</h2>
+          </div>
+        )}
         {isLoading && <Loader />}
         {errorMessage && <Error errorMessage={errorMessage} />}
         {filteredFruits && (

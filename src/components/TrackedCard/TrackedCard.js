@@ -3,23 +3,59 @@ import { useContext, useState } from "react";
 import { DataContext } from "../../contexts/DataContext";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-
-const MySwal = withReactContent(Swal);
+import emailjs from "@emailjs/browser";
 
 const TrackedCard = ({ id, name, nutritions, stock }) => {
-  const { trackedFruits, setTrackedFruits } = useContext(DataContext);
-  const [stockValue, setStockValue] = useState(stock);
+  const MySwal = withReactContent(Swal);
+  const { trackedFruits, setTrackedFruits, emailAddress } =
+    useContext(DataContext);
+  const [stockValue, setStockValue] = useState("");
 
   const incrementHandler = () => {
-    setStockValue(stock++);
-    updateStock(stock++);
+    if (stock < 50) {
+      setStockValue(stock++);
+      updateStock(stock++);
+    }
   };
 
   const decrementHandler = () => {
-    if (stock > 0) {
+    if (stock < 2) {
+      setStockValue(0);
+      updateStock(0);
+      MySwal.fire({
+        title: <strong>Whoops!</strong>,
+        html: (
+          <i>
+            Looks like you are out of stock! We will email you a notification to
+            remind you to stock up.
+          </i>
+        ),
+        icon: "warning",
+      });
+      const templateParams = {
+        user_email: emailAddress,
+        fruit_name: name,
+      };
+      emailjs
+        .send(
+          "service_5dcbypf",
+          "fruitbasket_empty",
+          templateParams,
+          "BDj1k9wy99YQCMQJl"
+        )
+        .then(
+          function (response) {
+            console.log("SUCCESS!", response.status, response.text);
+          },
+          function (error) {
+            console.log("FAILED...", error);
+          }
+        );
+    } else {
       setStockValue(stock--);
       updateStock(stock--);
     }
+    
   };
 
   const updateStock = (amount) => {

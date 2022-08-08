@@ -17,7 +17,6 @@ const FruitSearch = () => {
       <input
         id="search"
         value={searchValue}
-        // placeholder="Enter a fruit"
         onChange={handleInput}
         type="text"
       />

@@ -17,8 +17,8 @@ main {
 }
 
 button {
-  background-color: #F7D648;
-  border-radius: .5em;
+  background-color: #f7d648;
+  border-radius: 0.5em;
   color: #000;
   cursor: pointer;
   font-weight: bold;
@@ -37,8 +37,8 @@ button {
 button:not(:disabled):hover,
 button:not(:disabled):focus {
   outline: 0;
-  background: #F7D648;
-  box-shadow: 0 0 0 2px rgba(0,0,0,.2), 0 3px 8px 0 rgba(0,0,0,.15);
+  background: #f7d648;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2), 0 3px 8px 0 rgba(0, 0, 0, 0.15);
 }
 
 button:disabled {
@@ -52,10 +52,10 @@ a {
 }
 
 .fade-in {
-	animation: fade-in .5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fade-in 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 
- @keyframes fade-in {
+@keyframes fade-in {
   0% {
     opacity: 0;
   }
