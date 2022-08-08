@@ -1,8 +1,10 @@
 main {
   width: 100%;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* margin-bottom: 5vh; */
 }
 
 .main-heading {
@@ -47,9 +49,9 @@ button:disabled {
   cursor: not-allowed;
 }
 
-a {
+/* a {
   all: unset;
-}
+} */
 
 .fade-in {
   animation: fade-in 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;

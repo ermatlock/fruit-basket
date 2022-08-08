@@ -4,34 +4,44 @@ header {
   top: 0;
   width: 100%;
   display: flex;
+  justify-content: space-between;
   height: 7em;
   background-color: rgb(255, 232, 221);
 }
 
 header > div {
   height: 100%;
+  width: 33%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 
-.header-left {
-  width: 25%;
+.logo-container {
+  display: flex;
+  margin-left: 3em;
+  width: 50em;
+  align-items: center;
+}
+
+.logo-container > h1 {
+  margin: .5em;
+}
+
+/* .header-left {
 }
 .header-middle {
-  width: 50%;
 }
 .header-right {
-  width: 25%;
-}
+} */
 
 .logo {
   width: 5em;
   object-fit: contain;
 }
 
-.basket {
-  width: 3.5em;
+.basket-container {
+  width: 4em;
   object-fit: contain;
 }
 
@@ -40,9 +50,9 @@ header > div {
 }
 
 .notification-icon--fixed {
-  position: absolute;
-  top: 1.5rem;
-  right: 2.5rem;
+  position: relative;
+  top: 16px;
+  left: 23px;
   color: #fff;
   background-color: #ff0055;
   border-radius: 50%;

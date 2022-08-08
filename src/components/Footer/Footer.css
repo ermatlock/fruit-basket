@@ -1,0 +1,24 @@
+footer {
+  display: flex;
+  width: 100%;
+  height: 6em;
+  background-color: rgb(255, 232, 221);
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-text {
+  display: flex;
+  align-items: center;
+}
+
+.footer-text > a {
+  display: flex;
+  align-items: center;
+}
+
+a > img {
+  margin: 0em .5em 0em .5em;
+  display: inline;
+  height: 1.5em;
+}
