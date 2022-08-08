@@ -39,6 +39,7 @@ const DataContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [trackedFruits, setTrackedFruits] = useState([])
   const [totalStock, setTotalStock ] = useState(0);
+  const [emailAddress, setEmailAddress] = useState("")
 
   useEffect(() => {
     if (status === "error") {
@@ -110,6 +111,8 @@ const DataContextProvider = ({ children }) => {
         totalStock,
         trackedFruits,
         setTrackedFruits,
+        emailAddress, 
+        setEmailAddress
       }}
     >
       {data && children}
