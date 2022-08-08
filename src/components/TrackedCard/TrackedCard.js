@@ -1,15 +1,10 @@
 import "./TrackedCard.css";
 import { useContext, useState } from "react";
 import { DataContext } from "../../contexts/DataContext";
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
-
-
-const MySwal = withReactContent(Swal)
-
-
-
+const MySwal = withReactContent(Swal);
 
 const TrackedCard = ({ id, name, nutritions, stock }) => {
   const { trackedFruits, setTrackedFruits } = useContext(DataContext);
@@ -38,19 +33,21 @@ const TrackedCard = ({ id, name, nutritions, stock }) => {
 
   const removeFruit = () => {
     Swal.fire({
-      title: 'Are you sure?',
+      title: "Are you sure?",
       text: "You can add any fruit again by using the fruit list",
-      icon: 'warning',
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, remove it!'
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, remove it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        const newTrackedFruits = trackedFruits.filter(fruit => fruit.name !== name)
+        const newTrackedFruits = trackedFruits.filter(
+          (fruit) => fruit.name !== name
+        );
         setTrackedFruits(newTrackedFruits);
       }
-    })
+    });
   };
 
   return (
