@@ -8,9 +8,15 @@
 html, body {
   width: 100%;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 body {
-  font-family: 'Alfa Slab One', cursive;
+  /* font-family: 'Alfa Slab One', cursive; */
+  font-family: 'Patua One', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5;
