@@ -2,9 +2,6 @@ import "./TrackedCard.css";
 import { useContext, useState } from "react";
 import { DataContext } from "../../contexts/DataContext";
 import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
-
-const MySwal = withReactContent(Swal);
 
 const TrackedCard = ({ id, name, nutritions, stock }) => {
   const { trackedFruits, setTrackedFruits } = useContext(DataContext);
