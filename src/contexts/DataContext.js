@@ -1,5 +1,6 @@
 import React, { useState, createContext, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
+import emailjs from '@emailjs/browser';
 
 const fetchFruits = async () => {
   const res = await fetch("https://fe-cors-proxy.herokuapp.com", {
@@ -10,25 +11,28 @@ const fetchFruits = async () => {
   return res.json();
 };
 
-const startingFruits = [{
-  "name": "Apple",
-  "id": 100,
-  "nutritions": {
-      "protein": 0.3,
-      "fat": 0.4,
-      "sugar": 10.3
+const startingFruits = [
+  {
+    name: "Apple",
+    id: 100,
+    nutritions: {
+      protein: 0.3,
+      fat: 0.4,
+      sugar: 10.3,
+    },
+    stock: 5,
   },
-  "stock": 5
-}, {
-  "name": "Apricot",
-  "id": 101,
-  "nutritions": {
-      "protein": 0.5,
-      "fat": 0.1,
-      "sugar": 3.2
+  {
+    name: "Apricot",
+    id: 101,
+    nutritions: {
+      protein: 0.5,
+      fat: 0.1,
+      sugar: 3.2,
+    },
+    stock: 2,
   },
-  "stock": 2
-}]
+];
 
 const DataContext = createContext();
 const DataContextProvider = ({ children }) => {
@@ -37,9 +41,9 @@ const DataContextProvider = ({ children }) => {
   const [searchValue, setSearchValue] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  const [trackedFruits, setTrackedFruits] = useState([])
-  const [totalStock, setTotalStock ] = useState(0);
-  const [emailAddress, setEmailAddress] = useState("")
+  const [trackedFruits, setTrackedFruits] = useState([]);
+  const [totalStock, setTotalStock] = useState(0);
+  const [emailAddress, setEmailAddress] = useState("");
 
   useEffect(() => {
     if (status === "error") {
@@ -52,14 +56,32 @@ const DataContextProvider = ({ children }) => {
     }
     if (data) {
       setIsLoading(false);
-      setErrorMessage("")
+      setErrorMessage("");
       filterValues();
     }
   }, [status]);
 
   useEffect(() => {
+    if (emailAddress) {
+      const templateParams = {
+        user_email: emailAddress,
+      };
+      emailjs.send(
+        'service_5dcbypf',
+        'fruitbasket_signup',
+        templateParams,
+        'BDj1k9wy99YQCMQJl'
+      ).then(function(response) {
+        console.log('SUCCESS!', response.status, response.text);
+     }, function(error) {
+        console.log('FAILED...', error);
+     });
+    }
+  }, [emailAddress]);
+
+  useEffect(() => {
     let newTotal = getTotalStock();
-    setTotalStock(newTotal)
+    setTotalStock(newTotal);
   }, [trackedFruits]);
 
   useEffect(() => {
@@ -111,8 +133,8 @@ const DataContextProvider = ({ children }) => {
         totalStock,
         trackedFruits,
         setTrackedFruits,
-        emailAddress, 
-        setEmailAddress
+        emailAddress,
+        setEmailAddress,
       }}
     >
       {data && children}
