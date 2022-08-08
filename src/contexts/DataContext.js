@@ -8,6 +8,9 @@ const fetchFruits = async () => {
       "Target-URL": "https://www.fruityvice.com/api/fruit/all",
     },
   });
+  if (!res.ok) {
+    throw new Error('Network response was not ok')
+  }
   return res.json();
 };
 
@@ -55,9 +58,9 @@ const DataContextProvider = ({ children }) => {
       setIsLoading(true);
     }
     if (data) {
+      filterValues();
       setIsLoading(false);
       setErrorMessage("");
-      filterValues();
     }
   }, [status]);
 
