@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { DataContext } from "../../contexts/DataContext";
 
 const FruitSearch = () => {
-  const { searchFruit }  = useContext(DataContext);
+  const { searchFruit } = useContext(DataContext);
   const [searchValue, setSearchValue] = useState("");
 
   const handleInput = (e) => {

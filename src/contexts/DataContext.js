@@ -1,6 +1,6 @@
 import React, { useState, createContext, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
 
 const fetchFruits = async () => {
   const res = await fetch("https://fe-cors-proxy.herokuapp.com", {
@@ -9,7 +9,7 @@ const fetchFruits = async () => {
     },
   });
   if (!res.ok) {
-    throw new Error('Network response was not ok')
+    throw new Error("Network response was not ok");
   }
   return res.json();
 };
@@ -39,23 +39,28 @@ const DataContextProvider = ({ children }) => {
       setIsLoading(false);
       setErrorMessage("");
     }
-  }, [status]);
+  }, [status, data]);
 
   useEffect(() => {
     if (emailAddress) {
       const templateParams = {
         user_email: emailAddress,
       };
-      emailjs.send(
-        'service_5dcbypf',
-        'fruitbasket_signup',
-        templateParams,
-        'BDj1k9wy99YQCMQJl'
-      ).then(function(response) {
-        console.log('SUCCESS!', response.status, response.text);
-     }, function(error) {
-        console.log('FAILED...', error);
-     });
+      emailjs
+        .send(
+          "service_5dcbypf",
+          "fruitbasket_signup",
+          templateParams,
+          "BDj1k9wy99YQCMQJl"
+        )
+        .then(
+          function (response) {
+            console.log("SUCCESS!", response.status, response.text);
+          },
+          function (error) {
+            console.log("FAILED...", error);
+          }
+        );
     }
   }, [emailAddress]);
 

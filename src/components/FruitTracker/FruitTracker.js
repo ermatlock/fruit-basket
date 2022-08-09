@@ -1,5 +1,5 @@
 import "./FruitTracker.css";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { DataContext } from "../../contexts/DataContext";
 import TrackedCard from "../TrackedCard/TrackedCard";
 import Swal from "sweetalert2";
@@ -21,7 +21,6 @@ const FruitTracker = () => {
       inputLabel: "Your email address",
       inputPlaceholder: "Enter your email address",
     }).then((result) => {
-      // e.preventDefault();
       setEmailAddress(result.value);
     });
   };
