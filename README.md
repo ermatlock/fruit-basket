@@ -13,7 +13,7 @@ This application was built for the Code The Dream Tech Challenge. The following 
 - Send an email if the quantity of a product hits zero.
 
 ## Design
-Figment wireframe of site design can be found [here](https://www.figma.com/file/anJqSE6Y47XElIsabCvA03/CTD-Tracker-App).
+Figma wireframe of site design can be found [here](https://www.figma.com/file/anJqSE6Y47XElIsabCvA03/CTD-Tracker-App).
 
 ## Deployment/Walkthrough
 This site is deployed on Surge and can be found [here](https://fruit-basket-tracker.surge.sh/)!
