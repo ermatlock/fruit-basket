@@ -45,10 +45,11 @@ const FruitCard = ({ id, name, nutritions }) => {
           <li>Fat: {nutritions.fat}g</li>
         </ul>
       </div>
-      <form className="fruit-card-right">
+      <form className="fruit-card-right" autoComplete="off">
         <label htmlFor="amount">Choose amount (1-50):</label>
         <input
           type="number"
+          autoComplete="off"
           id="amount"
           min="0"
           max="50"
