@@ -12,7 +12,7 @@ const FruitSearch = () => {
   };
 
   return (
-    <form className="search fade-in">
+    <form className="search fade-in" autoComplete="off">
       <label htmlFor="search">Search for fruit</label>
       <input
         id="search"
