@@ -17,6 +17,7 @@ body {
   justify-content: space-between;
 }
 body {
+  font-family: 'Patua One', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5;
