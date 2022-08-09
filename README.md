@@ -6,12 +6,14 @@
 
 FruitBasket is a simple inventory tracker for all your favorite fruits. If your inventory runs out, FruitBasket will notify you!
 
-## Objectives:
+## Objectives
 This application was built for the Code The Dream Tech Challenge. The following are the primary requirements:
 - Keep track of at least one product.
 - Manage the quantities of the product(s). There should be a way to increase and decrease the number of items of the product(s) in the inventory.
 - Send an email if the quantity of a product hits zero.
 
+## Design
+Figment wireframe of site design can be found [here](https://www.figma.com/file/anJqSE6Y47XElIsabCvA03/CTD-Tracker-App).
 
 ## Deployment/Walkthrough
 This site is deployed on Surge and can be found [here](https://fruit-basket-tracker.surge.sh/)!
