@@ -1,11 +1,12 @@
 .fruit-list {
-  /* width: 80%; */
   margin-top: 1em;
+  margin-bottom: 1em;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(23em, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(23em, 1fr));
   grid-gap: 2em;
-  justify-content: center;
   justify-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .content-container {

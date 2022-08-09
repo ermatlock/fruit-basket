@@ -1,5 +1,6 @@
 main {
   width: 100%;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,10 +46,6 @@ button:disabled {
   filter: saturate(0.2) opacity(0.5);
   -webkit-filter: saturate(0.2) opacity(0.5);
   cursor: not-allowed;
-}
-
-a {
-  all: unset;
 }
 
 .fade-in {

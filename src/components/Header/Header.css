@@ -4,25 +4,52 @@ header {
   top: 0;
   width: 100%;
   display: flex;
+  justify-content: center;
   height: 7em;
   background-color: rgb(255, 232, 221);
 }
 
-header > div {
-  height: 100%;
+.header-container {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+}
+
+header > div > div {
+  width: 25em;
+}
+.header-left {
+  /* height: 100%; */
+  /* width: 25em; */
+  display: flex;
+  justify-content: flex-start;
+}
+
+.header-middle {
+  /* height: 100%; */
+  /* width: 25em; */
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 
-.header-left {
-  width: 25%;
-}
-.header-middle {
-  width: 50%;
-}
 .header-right {
-  width: 25%;
+  /* height: 100%; */
+  /* width: 25em; */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.logo-container {
+  display: flex;
+  /* margin-left: 3em; */
+  width: 18em;
+  align-items: center;
+}
+
+.logo-container > h1 {
+  margin: 0.5em;
 }
 
 .logo {
@@ -30,19 +57,26 @@ header > div {
   object-fit: contain;
 }
 
-.basket {
-  width: 3.5em;
+.nav-btn {
+  margin-right: 3em;
+  width: 15em;
+}
+.basket-container {
+  width: 4em;
   object-fit: contain;
 }
 
-.nav-btn {
-  width: 15em;
+.basket {
+  position: relative;
+  bottom: 10px;
+  right: 0px;
 }
 
 .notification-icon--fixed {
-  position: absolute;
-  top: 1.5rem;
-  right: 2.5rem;
+  z-index: 10;
+  position: relative;
+  top: 7px;
+  left: 23px;
   color: #fff;
   background-color: #ff0055;
   border-radius: 50%;
@@ -54,9 +88,146 @@ header > div {
 }
 
 .notification-icon--fixed::after {
-  /* position: absolute; */
   content: "";
   display: block;
   padding-bottom: 100%;
   z-index: 2;
+}
+
+
+
+/*~~~~~~~~~~~~MEDIA QUERIES~~~~~~~~~~~*/
+
+@media screen and (max-width: 1235px) {
+  .search > input {
+    min-width: 15em;
+    border-radius: 5px;
+  }
+  .search > select {
+    border-radius: 5px;
+    min-width: 15em;
+  }
+}
+
+/* ~~~~~~~~~~~1235px~~~~~~~~~~~~~~~~ */
+
+@media screen and (max-width: 1235px) {
+  .nav-btn {
+    width: 9em;
+  }
+}
+
+/* ~~~~~~~~~~~1030px~~~~~~~~~~~~~~~~ */
+
+@media screen and (max-width: 1030px) {
+  .header-container {
+    width: 90%;
+  }
+}
+
+/* ~~~~~~~~~~~930px~~~~~~~~~~~~~~~~ */
+
+@media screen and (max-width: 930px) {
+  .header-container {
+    width: 98%;
+  }
+
+  .header-left {
+    display: flex;
+    /* justify-content: flex-start; */
+  }
+
+  .header-middle {
+    display: flex;
+    /* justify-content: flex-end; */
+  }
+
+  .header-right {
+    display: flex;
+    /* justify-content: center; */
+  }
+
+  .logo {
+    width: 4em;
+    object-fit: contain;
+  }
+
+  .notification-icon--fixed {
+    top: 5px;
+    left: 21px;
+  }
+}
+
+/* ~~~~~~~~~~~835px~~~~~~~~~~~~~~~~ */
+
+@media screen and (max-width: 835px) {
+  header {
+    display: flex;
+    height: auto;
+  }
+  .header-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .header-left {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .header-middle {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .header-right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-btn {
+    margin-right: 3em;
+    width: 15em;
+  }
+
+  .basket-container {
+    width: 3em;
+  }
+
+  .notification-icon--fixed {
+    top: 6px;
+    left: 15px;
+  }
+}
+
+/* ~~~~~~~~~~~530px~~~~~~~~~~~~~~~~ */
+
+@media screen and (max-width: 530px) {
+  .header-left {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .header-middle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* ~~~~~~~~~~~400px~~~~~~~~~~~~~~~~ */
+
+@media screen and (max-width: 400px) {
+  .header-right {
+    height: 6em;
+  }
+  .nav-btn {
+    margin-right: 2em;
+    width: 15em;
+    padding: 0.2em;
+  }
 }

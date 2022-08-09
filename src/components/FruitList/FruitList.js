@@ -27,17 +27,6 @@ const FruitList = () => {
       input: 'email',
       inputLabel: 'Your email address',
       inputPlaceholder: 'Enter your email address',
-      // allowOutsideClick: () => {
-      //   const popup = Swal.getPopup()
-      //   popup.classList.remove('swal2-show')
-      //   setTimeout(() => {
-      //     popup.classList.add('shake-horizontal')
-      //   })
-      //   setTimeout(() => {
-      //     popup.classList.remove('animate__headShake')
-      //   }, 500)
-      //   return false
-      // }
     }).then((result) => {
       setEmailAddress(result.value)
     })

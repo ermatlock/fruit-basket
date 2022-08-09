@@ -8,31 +8,11 @@ const fetchFruits = async () => {
       "Target-URL": "https://www.fruityvice.com/api/fruit/all",
     },
   });
+  if (!res.ok) {
+    throw new Error('Network response was not ok')
+  }
   return res.json();
 };
-
-const startingFruits = [
-  {
-    name: "Apple",
-    id: 100,
-    nutritions: {
-      protein: 0.3,
-      fat: 0.4,
-      sugar: 10.3,
-    },
-    stock: 5,
-  },
-  {
-    name: "Apricot",
-    id: 101,
-    nutritions: {
-      protein: 0.5,
-      fat: 0.1,
-      sugar: 3.2,
-    },
-    stock: 2,
-  },
-];
 
 const DataContext = createContext();
 const DataContextProvider = ({ children }) => {
@@ -55,9 +35,9 @@ const DataContextProvider = ({ children }) => {
       setIsLoading(true);
     }
     if (data) {
+      filterValues();
       setIsLoading(false);
       setErrorMessage("");
-      filterValues();
     }
   }, [status]);
 
