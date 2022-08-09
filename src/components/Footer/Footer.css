@@ -7,18 +7,22 @@ footer {
   justify-content: center;
 }
 
-.footer-text {
-  display: flex;
-  align-items: center;
-}
-
-.footer-text > a {
-  display: flex;
-  align-items: center;
-}
-
 a > img {
   margin: 0em .5em 0em .5em;
   display: inline;
   height: 1.5em;
+}
+
+/*~~~~~~~~~~~~MEDIA QUERIES~~~~~~~~~~~*/
+
+/* ~~~~~~~~~~~~530px~~~~~~~~~~~~~~~~ */
+
+@media screen and (max-width: 530px) {
+  footer {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .footer-text {
+    font-size: 1em;
+  }
 }
