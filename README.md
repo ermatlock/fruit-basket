@@ -1,6 +1,6 @@
 # FruitBasket Inventory Tracker
 
-[View the Deployed Project Here]()
+[View the Deployed Project Here](https://fruit-basket-tracker.surge.sh/)
 
 ## Description
 
@@ -14,7 +14,7 @@ This application was built for the Code The Dream Tech Challenge. The following 
 
 
 ## Deployment/Walkthrough
-This site is deployed on Surge and can be found [here]()!
+This site is deployed on Surge and can be found [here](https://fruit-basket-tracker.surge.sh/)!
 Alternatively, this repo can be cloned to your local machine. run `npm i` before running `npm start`.
 
 This application was bootstrapped using `creat-react-app`

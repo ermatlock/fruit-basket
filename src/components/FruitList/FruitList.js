@@ -17,20 +17,20 @@ const FruitList = () => {
 
   useEffect(() => {
     if (!emailAddress) {
-      fireLogin()
+      fireLogin();
     }
-  },[])
+  }, []);
 
   const fireLogin = () => {
     Swal.fire({
-      title: 'Please enter your email address',
-      input: 'email',
-      inputLabel: 'Your email address',
-      inputPlaceholder: 'Enter your email address',
+      title: "Please enter your email address",
+      input: "email",
+      inputLabel: "Your email address",
+      inputPlaceholder: "Enter your email address",
     }).then((result) => {
-      setEmailAddress(result.value)
-    })
-  }
+      setEmailAddress(result.value);
+    });
+  };
 
   return (
     <main>

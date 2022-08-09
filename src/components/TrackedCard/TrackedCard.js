@@ -55,7 +55,6 @@ const TrackedCard = ({ id, name, nutritions, stock }) => {
       setStockValue(stock--);
       updateStock(stock--);
     }
-    
   };
 
   const updateStock = (amount) => {

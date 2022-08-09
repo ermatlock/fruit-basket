@@ -3,7 +3,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: .5em;
+  margin-top: 0.5em;
 }
 
 .search > input {
@@ -13,12 +13,16 @@
 
 /*~~~~~~~~~~~~MEDIA QUERIES~~~~~~~~~~~*/
 
+/* ~~~~~~~~~~~1235px~~~~~~~~~~~~~~~~ */
+
 @media screen and (max-width: 1235px) {
   .search > input {
     min-width: 15em;
     border-radius: 5px;
   }
 }
+
+/* ~~~~~~~~~~~530px~~~~~~~~~~~~~~~~ */
 
 @media screen and (max-width: 530px) {
   .search {
