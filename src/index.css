@@ -1,11 +1,13 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 * {
   margin: 0;
-  /* border: 1px solid red; */
 }
-html, body {
+html,
+body {
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -15,8 +17,6 @@ html, body {
   justify-content: space-between;
 }
 body {
-  /* font-family: 'Alfa Slab One', cursive; */
-  font-family: 'Patua One', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5;
@@ -24,19 +24,33 @@ body {
   background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
 }
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
-#root, #__next {
+#root,
+#__next {
   isolation: isolate;
 }
