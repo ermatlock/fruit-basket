@@ -10,7 +10,7 @@ const FruitCard = ({ id, name, nutritions }) => {
 
   const handleInput = (e) => {
     e.target.value > 0 ? setIsDisabled(false) : setIsDisabled(true);
-    e.target.value < 50 ? setAmount(e.target.value) : setAmount(50)
+    e.target.value < 50 ? setAmount(e.target.value) : setAmount(50);
   };
 
   const submitFruit = (e) => {
@@ -50,7 +50,6 @@ const FruitCard = ({ id, name, nutritions }) => {
         <input
           type="number"
           id="amount"
-          name="amount"
           min="0"
           max="50"
           value={amount}
